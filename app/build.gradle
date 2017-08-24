@@ -17,6 +17,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    aaptOptions{
+        cruncherEnabled=false
+        useNewCruncher=false
+    }
 }
 
 dependencies {
@@ -26,5 +30,9 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha7'
+    compile 'org.litepal.android:core:1.5.1'
+    compile files('src/main/libs/achartengine-1.1.0.jar')
+    compile files('src/main/libs/ksoap2-android-assembly-3.1.0-jar-with-dependencies.jar')
+    compile 'com.squareup.okhttp3:okhttp:3.8.1'
     testCompile 'junit:junit:4.12'
 }

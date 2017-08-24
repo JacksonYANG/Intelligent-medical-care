@@ -14,7 +14,7 @@ import com.buptcomputeacademic.lookforhealth.R;
 public class WelcomeActivity extends AppCompatActivity {
 
     private ThreadDelay threadDelay;
-    private boolean isrun=false
+    private boolean isrun=false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
