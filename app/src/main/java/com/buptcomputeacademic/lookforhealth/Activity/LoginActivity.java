@@ -3,6 +3,7 @@ package com.buptcomputeacademic.lookforhealth.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -20,6 +21,9 @@ import android.widget.Toast;
 
 import com.buptcomputeacademic.lookforhealth.R;
 
+/*
+    登录界面以及注册界面，允许用户在程序中注册并且将注册后的信息上传至服务器中，登录时也可进行登陆时的用户名密码匹配
+ */
 public class LoginActivity extends AppCompatActivity {
 
     private Button loginbutton;
@@ -76,7 +80,8 @@ public class LoginActivity extends AppCompatActivity {
         registerbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            
+                Intent intent=new Intent(LoginActivity.this,RegisterPage.class);
+                startActivity(intent);
             }
         });
 
