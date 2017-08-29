@@ -41,7 +41,8 @@
             android:process="remote" />
 
         <activity android:name=".Activity.Map" />
-        <activity android:name=".Activity.RegisterPage"></activity>
+        <activity android:name=".Activity.RegisterPage" />
+        <activity android:name=".Activity.MainActivity"></activity>
     </application>
 
 </manifest>
