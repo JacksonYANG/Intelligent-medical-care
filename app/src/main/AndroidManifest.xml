@@ -21,11 +21,12 @@
     <application
         android:name="org.litepal.LitePalApplication"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/icon"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:largeHeap="true">
 
         <meta-data android:name="JPUSH_APPKEY" android:value="a441373e813f3c2ef5a2fd3a"/>
         <activity android:name=".activity.MainActivity" />
@@ -41,8 +42,6 @@
         <activity android:name=".activity.LoginActivity" />
 
 
-
-        <activity android:name=".activity.RouteMap" />
         <activity android:name=".activity.RegisterPage" />
 
         <service

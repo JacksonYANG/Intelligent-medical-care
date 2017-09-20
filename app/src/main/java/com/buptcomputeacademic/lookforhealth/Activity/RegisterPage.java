@@ -3,6 +3,10 @@ package com.buptcomputeacademic.lookforhealth.activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -12,6 +16,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.baidu.mapapi.map.Text;
@@ -29,9 +34,11 @@ import java.util.TimerTask;
 import cn.jpush.sms.SMSSDK;
 import cn.jpush.sms.listener.SmscheckListener;
 import cn.jpush.sms.listener.SmscodeListener;
+import static com.buptcomputeacademic.lookforhealth.Base.loadPicture.*;
 
 public class RegisterPage extends AppCompatActivity {
 
+    private LinearLayout linearLayout;
     private EditText NewAccout;
     private EditText NewPasswd;
     private EditText phone;
@@ -54,6 +61,10 @@ public class RegisterPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_register_page);
+        Resources res=getResources();
+        Bitmap bitmap=decodeBitmapFromResource(res,R.drawable.register_background,1280,720);
+        linearLayout=(LinearLayout) findViewById(R.id.register_page_layout);
+        linearLayout.setBackground(new BitmapDrawable(res,bitmap));
         registerDialog=new ProgressDialog(this);
         NewAccout=(EditText) findViewById(R.id.NewUserName);
         NewPasswd=(EditText) findViewById(R.id.NewPassword);
@@ -99,7 +110,7 @@ public class RegisterPage extends AppCompatActivity {
                     Toast.makeText(RegisterPage.this,"请输入验证码",Toast.LENGTH_SHORT).show();
                     return;
                 }
-                registerDialog.setMessage("注册中...");
+                registerDialog.setTitle("注册中...");
                 registerDialog.show();
                 //检查验证码是否正确
                 checkChaptcha();
@@ -172,6 +183,9 @@ public class RegisterPage extends AppCompatActivity {
             @Override
             public void checkCodeSuccess(final String code) {
                 Log.d("Register_Chapcha","Success!");
+                if(registerDialog!=null&&registerDialog.isShowing()){
+                    registerDialog.dismiss();
+                }
 //                Toast.makeText(RegisterPage.this,"验证成功",Toast.LENGTH_SHORT).show();
             }
 
@@ -198,8 +212,8 @@ public class RegisterPage extends AppCompatActivity {
         });
     }
 
+    //用LitePal将数据存入本地数据库
     private void saveuser(){
-        //用LitePal将数据存入本地数据库
         LitePal.getDatabase();
         List<User> queryUser= DataSupport.findAll(User.class);
         for(User user1:queryUser){
@@ -298,5 +312,10 @@ public class RegisterPage extends AppCompatActivity {
         }
         SendCaptcha.setText("重新获取验证码");
         SendCaptcha.setClickable(true);
+    }
+
+    //将数据上传至服务器数据库
+    private void sendSQL(){
+
     }
 }

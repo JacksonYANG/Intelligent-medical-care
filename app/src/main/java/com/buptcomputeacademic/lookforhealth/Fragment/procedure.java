@@ -1,6 +1,9 @@
 package com.buptcomputeacademic.lookforhealth.fragment;
 
 import android.content.Context;
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -10,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import com.buptcomputeacademic.lookforhealth.R;
@@ -22,6 +26,8 @@ import java.net.HttpURLConnection;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
+
+import static com.buptcomputeacademic.lookforhealth.Base.loadPicture.decodeBitmapFromResource;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -40,6 +46,7 @@ public class procedure extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private FrameLayout frameLayout;
     private Button Delay;
     private Button DelayBack;
 
@@ -77,7 +84,10 @@ public class procedure extends Fragment {
         // Inflate the layout for this fragment
         //初始化按钮
         View view=inflater.inflate(R.layout.fragment_procedure, container, false);
-
+        Resources res=getResources();
+        Bitmap bitmap=decodeBitmapFromResource(res,R.drawable.procedure_background,1280,720);
+        frameLayout=(FrameLayout) view.findViewById(R.id.procedure_background);
+        frameLayout.setBackground(new BitmapDrawable(res,bitmap));
         Delay=(Button) view.findViewById(R.id.delay);
         DelayBack=(Button) view.findViewById(R.id.delay_back);
 

@@ -15,4 +15,8 @@
     <color name="deep_black">#333333</color>
     <color name="black">#000000</color>
     <color name="amber">#BBFFC107</color>
+    <color name="CadetBlue">#98F5FF</color>
+    <color name="SeaGreen">#54FF9F</color>
+    <color name="transparent">#00000000</color>
+    <color name="half_reansparent">#e0000000</color>
 </resources>

@@ -1,33 +1,23 @@
 package com.buptcomputeacademic.lookforhealth.fragment;
 
-import android.content.Context;
-import android.net.Uri;
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 
-import com.baidu.location.BDAbstractLocationListener;
-import com.baidu.location.BDLocation;
-import com.baidu.location.BDLocationListener;
 import com.baidu.location.LocationClient;
-import com.baidu.location.LocationClientOption;
-import com.baidu.mapapi.SDKInitializer;
 import com.baidu.mapapi.map.BaiduMap;
-import com.baidu.mapapi.map.MapStatusUpdate;
-import com.baidu.mapapi.map.MapStatusUpdateFactory;
 import com.baidu.mapapi.map.MapView;
-import com.baidu.mapapi.map.MyLocationData;
-import com.baidu.mapapi.model.LatLng;
-import com.baidu.mapapi.search.poi.OnGetPoiSearchResultListener;
-import com.baidu.mapapi.search.poi.PoiDetailResult;
-import com.baidu.mapapi.search.poi.PoiIndoorResult;
-import com.baidu.mapapi.search.poi.PoiResult;
 import com.baidu.mapapi.search.poi.PoiSearch;
-import com.buptcomputeacademic.lookforhealth.activity.RouteMap;
 import com.buptcomputeacademic.lookforhealth.R;
+
+import static com.buptcomputeacademic.lookforhealth.Base.loadPicture.decodeBitmapFromResource;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -47,6 +37,7 @@ public class route extends Fragment {
     private String mParam1;
     private String mParam2;
     private MapView mapView;
+    private FrameLayout frameLayout;
     private boolean FistLocate=true;//第一次我的位置
     private BaiduMap baiduMap;//获取地图总控制
     public LocationClient locationClient;
@@ -144,7 +135,12 @@ public class route extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_route, container, false);
+        View view=inflater.inflate(R.layout.fragment_route, container, false);
+        Resources res=getResources();
+        Bitmap bitmap=decodeBitmapFromResource(res,R.drawable.route_background,1280,720);
+        frameLayout=(FrameLayout) view.findViewById(R.id.route_background);
+        frameLayout.setBackground(new BitmapDrawable(res,bitmap));
+        return view;
     }
 
 

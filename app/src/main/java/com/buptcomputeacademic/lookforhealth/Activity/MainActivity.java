@@ -51,9 +51,9 @@ public class MainActivity extends AppCompatActivity  {
         viewPagerAdapter=new ViewPagerAdapter(getSupportFragmentManager(),fragmentArrayList,titleArrayList);
         viewPager.setAdapter(viewPagerAdapter);
         tabLayout.setupWithViewPager(viewPager,true);
-        tabLayout.getTabAt(0).setIcon(getDrawable(R.drawable.home));
-        tabLayout.getTabAt(1).setIcon(getDrawable(R.mipmap.ic_chrome_reader_mode_black_24dp));
-        tabLayout.getTabAt(2).setIcon(getDrawable(R.drawable.person));
+        tabLayout.getTabAt(0).setIcon(getDrawable(R.drawable.choose_icon));
+        tabLayout.getTabAt(1).setIcon(getDrawable(R.drawable.procedure_icon));
+        tabLayout.getTabAt(2).setIcon(getDrawable(R.drawable.route_icon));
 
     }
 
