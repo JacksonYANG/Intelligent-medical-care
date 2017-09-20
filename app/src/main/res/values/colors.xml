@@ -12,4 +12,7 @@
     <color name="gainsboro">#DCDCDC</color>
     <color name="white">#FFFFFF</color>
     <color name="MediumAquamarine">#00FA9A</color>
+    <color name="deep_black">#333333</color>
+    <color name="black">#000000</color>
+    <color name="amber">#BBFFC107</color>
 </resources>

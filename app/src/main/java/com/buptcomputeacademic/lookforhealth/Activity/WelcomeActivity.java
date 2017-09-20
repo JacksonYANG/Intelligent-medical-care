@@ -1,4 +1,4 @@
-package com.buptcomputeacademic.lookforhealth.Activity;
+package com.buptcomputeacademic.lookforhealth.activity;
 
 import android.Manifest;
 import android.app.AlertDialog;
@@ -14,6 +14,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
@@ -22,6 +23,8 @@ import com.buptcomputeacademic.lookforhealth.R;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import cn.jpush.sms.SMSSDK;
 
 /*
     软件启动的欢迎界面，已经将危险权限全部申请，方便后面定位函数的调用
@@ -34,9 +37,9 @@ public class WelcomeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_welcome);
+        Toolbar toolbar=(Toolbar) findViewById(R.id.welcomeToolbar);
+        setSupportActionBar(toolbar);
         isrun=true;
         threadDelay=new ThreadDelay();
         threadDelay.start();
@@ -62,6 +65,7 @@ public class WelcomeActivity extends AppCompatActivity {
                         ActivityCompat.requestPermissions(WelcomeActivity.this,permissions,1);
                     }
                     else {
+                        SMSSDK.getInstance().initSdk(WelcomeActivity.this);
                         Thread.sleep(1500);
                     }
                 } catch (InterruptedException e){

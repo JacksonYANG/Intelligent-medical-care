@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="TheSubject">
+
+        <item>内科</item>
+        <item>外科</item>
+        <item>儿科</item>
+        <item>妇科</item>
+        <item>神经科</item>
+        <item>眼科</item>
+        <item>耳鼻喉科</item>
+        <item>口腔科</item>
+        <item>泌尿科</item>
+        <item>骨科</item>
+        <item>创伤科</item>
+        <item>内分泌科</item>
+        <item>麻醉科</item>
+        <item>皮肤科</item>
+        <item>心脏外科</item>
+    </string-array>
+
+</resources>

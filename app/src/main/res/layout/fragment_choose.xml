@@ -2,7 +2,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.buptcomputeacademic.lookforhealth.Fragment.choose">
+    android:orientation="vertical">
 
-    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/order"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="140dp"
+            android:layout_marginTop="100dp"
+            android:text="挂号预约" />
+
+        <Button
+            android:id="@+id/check_procedure"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="130dp"
+            android:layout_marginTop="170dp"
+            android:text="查看排队进度" />
+
+
+    </LinearLayout>
+
+
 </FrameLayout>

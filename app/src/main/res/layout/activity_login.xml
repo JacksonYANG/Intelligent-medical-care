@@ -60,7 +60,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="3"
                 android:id="@+id/password_text"
-                style=""/>
+                android:inputType="textPassword"/>
         </LinearLayout>
 
         <LinearLayout
@@ -103,4 +103,5 @@
                 android:text="新用户注册" />
         </LinearLayout>
     </LinearLayout>
+
 </LinearLayout>
