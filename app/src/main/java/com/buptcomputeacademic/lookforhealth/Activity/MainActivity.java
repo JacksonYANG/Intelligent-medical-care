@@ -35,13 +35,15 @@ public class MainActivity extends AppCompatActivity  {
     private TabLayout tabLayout;
     private ArrayList<Fragment> fragmentArrayList;
     private ArrayList<String> titleArrayList=new ArrayList<String>(){{
-        add("排号");
-        add("流程");
-        add("路线图");
+        add("首页");
+        add("就诊信息");
+        add("地图");
     }};
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //初始化viewpager容器和TableLayout
@@ -64,4 +66,6 @@ public class MainActivity extends AppCompatActivity  {
         fragments.add(new route());
         return fragments;
     }
+
+
 }

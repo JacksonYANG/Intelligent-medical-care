@@ -9,6 +9,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.FrameLayout;
 
 import com.baidu.location.LocationClient;
@@ -22,7 +23,6 @@ import static com.buptcomputeacademic.lookforhealth.Base.loadPicture.decodeBitma
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link route.OnFragmentInteractionListener} interface
  * to handle interaction events.
  * Use the {@link route#newInstance} factory method to
  * create an instance of this fragment.
@@ -37,7 +37,8 @@ public class route extends Fragment {
     private String mParam1;
     private String mParam2;
     private MapView mapView;
-    private FrameLayout frameLayout;
+//    private FrameLayout frameLayout;
+    private Button searchHospital;
     private boolean FistLocate=true;//第一次我的位置
     private BaiduMap baiduMap;//获取地图总控制
     public LocationClient locationClient;
@@ -136,10 +137,19 @@ public class route extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view=inflater.inflate(R.layout.fragment_route, container, false);
-        Resources res=getResources();
-        Bitmap bitmap=decodeBitmapFromResource(res,R.drawable.route_background,1280,720);
-        frameLayout=(FrameLayout) view.findViewById(R.id.route_background);
-        frameLayout.setBackground(new BitmapDrawable(res,bitmap));
+        searchHospital=(Button) view.findViewById(R.id.search_hospital);
+        searchHospital.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+//        Resources res=getResources();
+//        Bitmap bitmap=decodeBitmapFromResource(res,R.drawable.route_background,1280,720);
+//        frameLayout=(FrameLayout) view.findViewById(R.id.route_background);
+//        frameLayout.setBackground(new BitmapDrawable(res,bitmap));
+
+
         return view;
     }
 

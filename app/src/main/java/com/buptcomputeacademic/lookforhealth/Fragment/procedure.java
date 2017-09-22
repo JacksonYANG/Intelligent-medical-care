@@ -1,6 +1,7 @@
 package com.buptcomputeacademic.lookforhealth.fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
@@ -14,9 +15,12 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.FrameLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.buptcomputeacademic.lookforhealth.R;
+import com.buptcomputeacademic.lookforhealth.activity.Accomplish;
+import com.buptcomputeacademic.lookforhealth.activity.AccomplishDetail;
 import com.buptcomputeacademic.lookforhealth.web.HttpUtil;
 
 import java.io.BufferedReader;
@@ -32,7 +36,6 @@ import static com.buptcomputeacademic.lookforhealth.Base.loadPicture.decodeBitma
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link procedure.OnFragmentInteractionListener} interface
  * to handle interaction events.
  * Use the {@link procedure#newInstance} factory method to
  * create an instance of this fragment.
@@ -49,6 +52,9 @@ public class procedure extends Fragment {
     private FrameLayout frameLayout;
     private Button Delay;
     private Button DelayBack;
+    private TextView beforePerson;
+    private TextView currentRoom;
+    private TextView nextRoom;
 
 //    private OnFragmentInteractionListener mListener;
 
@@ -84,19 +90,25 @@ public class procedure extends Fragment {
         // Inflate the layout for this fragment
         //初始化按钮
         View view=inflater.inflate(R.layout.fragment_procedure, container, false);
-        Resources res=getResources();
-        Bitmap bitmap=decodeBitmapFromResource(res,R.drawable.procedure_background,1280,720);
-        frameLayout=(FrameLayout) view.findViewById(R.id.procedure_background);
-        frameLayout.setBackground(new BitmapDrawable(res,bitmap));
+//        Resources res=getResources();
+//        Bitmap bitmap=decodeBitmapFromResource(res,R.drawable.procedure_background,1280,720);
+//        frameLayout=(FrameLayout) view.findViewById(R.id.procedure_background);
+//        frameLayout.setBackground(new BitmapDrawable(res,bitmap));
         Delay=(Button) view.findViewById(R.id.delay);
         DelayBack=(Button) view.findViewById(R.id.delay_back);
+
+        //初始化三个Textview
+        beforePerson=(TextView) view.findViewById(R.id.before_person);
+        currentRoom=(TextView) view.findViewById(R.id.current_room);
+        nextRoom=(TextView) view.findViewById(R.id.next_room);
 
 
 
         Delay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent=new Intent(getActivity(),AccomplishDetail.class);
+                startActivity(intent);
             }
         });
 

@@ -1,10 +1,9 @@
 package com.buptcomputeacademic.lookforhealth.fragment;
 
-import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -12,13 +11,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import android.widget.Spinner;
+import android.widget.ListView;
 
 import com.buptcomputeacademic.lookforhealth.R;
+import com.buptcomputeacademic.lookforhealth.activity.Accomplish;
+import com.buptcomputeacademic.lookforhealth.activity.MainActivity;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static com.buptcomputeacademic.lookforhealth.Base.loadPicture.decodeBitmapFromResource;
 
@@ -35,8 +37,8 @@ public class choose extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     private FrameLayout frameLayout;
+    private Button Accomplish_btn;
     private Button Order;
-    private Button CheckProcedure;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -72,12 +74,19 @@ public class choose extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view=inflater.inflate(R.layout.fragment_choose,container,false);
-        Resources res=getResources();
-        Bitmap bitmap=decodeBitmapFromResource(res,R.drawable.choose_background,1280,720);
-        frameLayout=(FrameLayout) view.findViewById(R.id.choose_background);
-        frameLayout.setBackground(new BitmapDrawable(res,bitmap));
+        //设置三个按钮并且进行初始化
+        Accomplish_btn=(Button) view.findViewById(R.id.accomplish);
         Order=(Button) view.findViewById(R.id.order);
-        CheckProcedure=(Button) view.findViewById(R.id.check_procedure);
+
+        Accomplish_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //进入完善信息的intent
+                Intent intent=new Intent(getContext(), Accomplish.class);
+                startActivity(intent);
+            }
+        });
+
         Order.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -85,12 +94,15 @@ public class choose extends Fragment {
             }
         });
 
-        CheckProcedure.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-            }
-        });
+//        Resources res=getResources();
+//        Bitmap bitmap=decodeBitmapFromResource(res,R.drawable.choose_background,1280,720);
+//
+//        frameLayout=(FrameLayout) view.findViewById(R.id.choose_background);
+//        frameLayout.setBackground(new BitmapDrawable(res,bitmap));
+
+
         return view;
     }
+
 }

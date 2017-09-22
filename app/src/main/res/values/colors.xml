@@ -19,4 +19,6 @@
     <color name="SeaGreen">#54FF9F</color>
     <color name="transparent">#00000000</color>
     <color name="half_reansparent">#e0000000</color>
+    <color name="PaleTurquoise">#AFEEEE</color>
+    <color name="Turquoise3">#00C5CD</color>
 </resources>

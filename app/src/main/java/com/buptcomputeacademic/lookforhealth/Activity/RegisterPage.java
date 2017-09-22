@@ -204,7 +204,7 @@ public class RegisterPage extends AppCompatActivity {
                         finish();
                     }
                 });
-                error_Chapcha.show();
+                error_Chapcha.create().show();
 
 //                Toast.makeText(RegisterPage.this,"验证失败,错误码:"+errCode+"错误信息:"+errorMsg,Toast.LENGTH_SHORT).show();
 
@@ -231,7 +231,7 @@ public class RegisterPage extends AppCompatActivity {
                         NewAccout.requestFocus();
                     }
                 });
-                errorAccount.show();
+                errorAccount.create().show();
                 flag=false;
                 break;
             } else if(user1.getPhone().equals(mPhone)){
@@ -248,7 +248,7 @@ public class RegisterPage extends AppCompatActivity {
                         NewAccout.requestFocus();
                     }
                 });
-                errorPhone.show();
+                errorPhone.create().show();
                 flag=false;
                 break;
             }
@@ -268,7 +268,7 @@ public class RegisterPage extends AppCompatActivity {
                     finish();
                 }
             });
-            correct.show();
+            correct.create().show();
         }
     }
 

@@ -14,24 +14,23 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:name="org.litepal.LitePalApplication"
         android:allowBackup="true"
         android:icon="@drawable/icon"
         android:label="@string/app_name"
+        android:largeHeap="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        android:largeHeap="true">
+        android:theme="@style/AppTheme">
+        <meta-data
+            android:name="JPUSH_APPKEY"
+            android:value="a441373e813f3c2ef5a2fd3a" />
 
-        <meta-data android:name="JPUSH_APPKEY" android:value="a441373e813f3c2ef5a2fd3a"/>
         <activity android:name=".activity.MainActivity" />
-
-
         <activity android:name=".activity.WelcomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -40,13 +39,15 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.LoginActivity" />
-
-
         <activity android:name=".activity.RegisterPage" />
 
         <service
             android:name=".service.GetWebService"
             android:enabled="true"
             android:exported="true" />
+
+        <activity android:name=".activity.Accomplish" />
+        <activity android:name=".activity.AccomplishDetail"></activity>
     </application>
+
 </manifest>

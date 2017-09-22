@@ -19,23 +19,25 @@
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_gravity="center"
-            android:layout_weight="1"
+            android:layout_weight="2"
             android:orientation="vertical">
+
+            <Button
+                android:id="@+id/accomplish"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_circle_blue"
+                android:layout_marginTop="50dp"
+                android:text="完善信息"/>
 
             <Button
                 android:id="@+id/order"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/btn_circle_transparent"
+                android:background="@drawable/btn_circle_blue"
+                android:layout_marginTop="50dp"
                 android:text="挂号预约" />
 
-            <Button
-                android:id="@+id/check_procedure"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="90dp"
-                android:background="@drawable/btn_circle_transparent"
-                android:text="查看排队进度" />
         </LinearLayout>
 
         <LinearLayout
